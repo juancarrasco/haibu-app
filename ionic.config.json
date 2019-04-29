@@ -1,5 +1,7 @@
 {
   "name": "haibuApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
