@@ -15,6 +15,10 @@ Give examples
 
 npm install
 
+## Running the android
+
+ionic cordova run android -l -c -s
+
 ## Running the tests
 
 npm test
