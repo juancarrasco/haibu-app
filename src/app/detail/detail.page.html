@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detail Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{employee.nombre}}</ion-card-subtitle>
+    <ion-card-title>{{employee.apellido}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>RUT: {{employee.rut}}   
+    	<ion-icon *ngIf="employee.rutValid()" name="checkmark"></ion-icon>
+		<ion-icon *ngIf="!employee.rutValid()"  name="close"></ion-icon>
+    </p>
+    <p>{{employee.getBirthday()}}</p>
+    <ion-button (click)='launchMap(employee.direccion)'> 
+    	<ion-icon name="map"></ion-icon>
+    </ion-button >
+    <ion-button  (click)='launchCall(employee.telefono)'> 
+     <ion-icon name="call"></ion-icon>
+	</ion-button>
+  </ion-card-content>
+</ion-card>
+</ion-content>
