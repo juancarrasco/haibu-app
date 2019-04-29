@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>List Employees</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		 	<ion-searchbar 
+		 	class="searchIcon" 
+		 	[(ngModel)]="searchKey" 
+		 	[showCancelButton]="true" 
+		 	(ionInput)="search($event)" 
+		 	(ionClear)="resetChanges()">
+</ion-searchbar>
+<div *ngIf="error" class="ion-padding">
+	<h3>
+		Error Connection!
+	</h3>
+</div>
+<div *ngIf="loading" class="ion-padding">
+	<ion-spinner name="crescent">
+	</ion-spinner>
+</div>
+<ion-list>
+ 
+    <ion-item [ngClass]="{ 'activo': item.activo === 1, 'desactivado': item.activo !== 1 }"   class="item-icon-right" button *ngFor="let item of (filteredEmployees | async)" (click)="openDetailView(item)" >
+
+ 
+      <ion-label text-wrap>
+        <h3>{{ item.nombre }}</h3>
+      </ion-label>
+		<ion-icon *ngIf="item.activo == 1" name="checkmark-circle"></ion-icon>
+		<ion-icon *ngIf="item.activo == 0" name="close-circle"></ion-icon>
+    </ion-item>
+ 
+</ion-list>
+</ion-card>
+</ion-content>
