@@ -1,5 +1,7 @@
 import * as moment from 'moment';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class Employee {
 
 	id:number;
@@ -16,7 +18,6 @@ export class Employee {
 	activo:number;
 
 	constructor(values: Object = {}) {
-		console.log(values)
 		Object.assign(this, values);
 	}
 
@@ -24,7 +25,7 @@ export class Employee {
 	getBirthday():string{
 		return moment(this.fechaNacimiento).fromNow();
 	}
-S
+
 	//return boolean
 	rutValid(){
 		if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( this.rut ))

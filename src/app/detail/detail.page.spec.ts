@@ -13,27 +13,42 @@ import {
   HttpClientTestingModule
 } from '@angular/common/http/testing';
 
+import { RouterTestingModule } from '@angular/router/testing';
+
+
 describe('DetailPage', () => {
   let component: DetailPage;
   let fixture: ComponentFixture<DetailPage>;
   let activatedRoute: ActivatedRoute;
-
+  let router: Router;
+  let employee: Employee;
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       declarations: [ DetailPage ],
+      imports: [
+        RouterTestingModule
+        
+       ],
+       providers:[
+        {provide: Employee, useClass: {}}
+       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
+    router = TestBed.get(Router);
+    employee = new Employee({});
     activatedRoute = TestBed.get(ActivatedRoute);
     fixture = TestBed.createComponent(DetailPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
   });
 
-  it('should create', () => {
+  it('should create',  () => {
     expect(component).toBeTruthy();
   });
 });

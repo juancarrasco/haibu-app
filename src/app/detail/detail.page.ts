@@ -9,7 +9,7 @@ import { Employee } from '../models/Employee';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-employee: Employee;
+employee: Employee = new Employee({});
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
